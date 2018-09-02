@@ -1,0 +1,54 @@
+{{>header}}
+<header>
+    <div id="profile"><span>{{username}}</span>|<a href="#/logout">logout</a></div>
+</header>
+<div class="content">
+    <div id="menu">
+        <div class="title">Navigation</div>
+        <a class="nav" href="#/catal">Catalog</a>
+        <a class="nav" href="#/submit">Submit Link</a>
+        <a class="nav" href="#/myPost">My Posts</a>
+    </div>
+<section id="viewComments">
+    <div class="post">
+        <div class="col thumbnail">
+            <a href="{{url}}">
+                <img src="{{imageUrl}}">
+            </a>
+        </div>
+        <div class="post-content">
+            <div class="title">
+                <a href="{{url}}">
+                    {{title}}
+                </a>
+            </div>
+            <div class="details">
+                <p>{{description}}</p>
+                <div class="info">
+                    submitted {{times}} ago by {{username}}
+                </div>
+                {{#if isAuthor}}
+                <div class="controls">
+                    <ul>
+                        <li class="action"><a class="editLink" href="#/edit/{{_id}}">edit</a></li>
+                        <li class="action"><a class="deleteLink" href="#/delete/{{_id}}">delete</a></li>
+                    </ul>
+                </div>
+                    {{/if}}
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post post-content">
+        <form id="commentForm" action="#/createComment/{{commentId}}" method="post">
+            <label>Comment</label>
+            <textarea name="content" type="text"></textarea>
+            <input type="submit" value="Add Comment" id="btnPostComment">
+        </form>
+    </div>
+    <div id="comments">
+
+    </div>
+</section>
+</div>
+{{>footer}}
